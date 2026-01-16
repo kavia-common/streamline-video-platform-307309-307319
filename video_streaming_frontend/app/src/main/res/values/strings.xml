@@ -10,4 +10,12 @@
     <string name="rating_dislike">I don\'t like it</string>
     <string name="rating_close">Close</string>
     <string name="rating_countdown">Closing in %d seconds</string>
+
+    <!-- Like UI -->
+    <string name="video_details_title">Video details</string>
+    <string name="likes_count">%d likes</string>
+    <string name="like_button_like">Like</string>
+    <string name="like_button_unlike">Unlike</string>
+    <string name="a11y_like_button">Toggle like</string>
+    <string name="a11y_likes_count">Likes count</string>
 </resources>

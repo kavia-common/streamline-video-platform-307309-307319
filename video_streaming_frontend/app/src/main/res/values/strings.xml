@@ -11,6 +11,9 @@
     <string name="rating_close">Close</string>
     <string name="rating_countdown">Closing in %d seconds</string>
 
+    <!-- Browse UI -->
+    <string name="browse_title">Browse</string>
+
     <!-- Like UI -->
     <string name="video_details_title">Video details</string>
     <string name="likes_count">%d likes</string>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/video_item_title"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/tv_button_background"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:layout_marginBottom="14dp"
+    android:minHeight="72dp"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingTop="18dp"
+    android:paddingBottom="18dp"
+    android:textColor="@color/tv_primary"
+    android:textSize="22sp"
+    android:text="Video title" />

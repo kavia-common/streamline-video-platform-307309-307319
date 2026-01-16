@@ -36,10 +36,9 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_end="48dp" />
 
-    <!-- Host our TV details fragment -->
+    <!-- Host fragments (browse/details) -->
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/main_fragment_container"
-        android:name="com.example.video_streaming_frontend.ui.details.VideoDetailsFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="@id/guideline_bottom"

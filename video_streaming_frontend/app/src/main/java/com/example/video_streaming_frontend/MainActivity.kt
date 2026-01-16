@@ -1,42 +1,42 @@
 package com.example.video_streaming_frontend
 
 import android.os.Bundle
-import androidx.fragment.app.FragmentActivity
 import android.view.KeyEvent
-import android.widget.TextView
+import androidx.fragment.app.FragmentActivity
+import com.example.video_streaming_frontend.ui.browse.VideoBrowseFragment
 
 /**
- * Main Activity for Android TV
- * Extends FragmentActivity for Leanback compatibility
+ * Main Activity for Android TV.
+ *
+ * Hosts the app's fragment navigation (Browse -> Details).
  */
 class MainActivity : FragmentActivity() {
-
-    private lateinit var titleText: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        
-        titleText = findViewById(R.id.title_text)
-        titleText.text = "video_streaming_frontend"
-        
-        // TODO: Initialize your rating screen components here
-        // setupRatingOverlay()
+
+        // On first launch, show the browse screen. Subsequent recreations (rotation/process death)
+        // are handled by the FragmentManager state restore.
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.main_fragment_container, VideoBrowseFragment(), VideoBrowseFragment.TAG)
+                .commit()
+        }
     }
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
-        // Handle TV remote control inputs
+        // Handle TV remote BACK: pop details -> browse and allow browse to regain focus.
         return when (keyCode) {
-            KeyEvent.KEYCODE_DPAD_CENTER,
-            KeyEvent.KEYCODE_ENTER -> {
-                // Handle SELECT/OK button
-                true
-            }
             KeyEvent.KEYCODE_BACK -> {
-                // Handle BACK button
-                finish()
+                if (supportFragmentManager.backStackEntryCount > 0) {
+                    supportFragmentManager.popBackStack()
+                } else {
+                    finish()
+                }
                 true
             }
+
             else -> super.onKeyDown(keyCode, event)
         }
     }
